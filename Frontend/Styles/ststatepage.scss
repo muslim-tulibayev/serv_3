@@ -1,0 +1,359 @@
+$green: #26a845;
+$lightgray: #a1a1aa;
+$red: rgb(253, 36, 36);
+
+.pseudospace {
+    height: 200px;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    overflow-y: auto;
+}
+
+.searchAndList {
+    height: 100%;
+    width: 300px;
+    backdrop-filter: blur(10px);
+    background-image: url(./../../Src/macos-big-sur-apple-layers-fluidic-colorful-dark-wwdc-2020-3840x2160-1432.jpg);
+    // background-image: url(/src/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-2880x1800-1455.jpg);
+    background-size: cover;
+    overflow-y: auto;
+    background-position: center;
+
+    .blur {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(20px);
+        padding: 5px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .searchwrapper {
+
+        h5 {
+            color: white;
+            font-weight: 500;
+            margin: 5px 0;
+        }
+
+        .searchbox {
+            border: solid 1px $lightgray;
+            border-radius: 7px;
+            display: flex;
+            height: 25px;
+            padding: 0px 5px;
+
+            span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $lightgray;
+                font-size: 20px;
+                font-weight: 300;
+            }
+
+            .searchbox-input {
+                flex: auto;
+                background-color: transparent;
+                outline: none;
+                border: none;
+                font-size: 13px;
+                font-weight: 300;
+
+                &::placeholder {
+                    color: $lightgray;
+                }
+            }
+        }
+    }
+
+    .stlist {
+        flex: 1;
+        margin-top: 10px;
+        overflow-y: auto;
+        padding-right: 5px;
+
+        &::-webkit-scrollbar {
+            width: 2px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.5);
+            outline: none;
+            border-radius: 2px;
+        }
+
+        .st {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 7px;
+            margin: 3px 0;
+            padding: 3px;
+            user-select: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+
+            &:hover {
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            img {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 5px;
+            }
+
+            .stnameAndGrnumWrapper {
+                flex: 1;
+
+                .stname {
+                    font-size: 13px;
+                }
+
+                .grnum {
+                    color: $lightgray;
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}
+
+.standentering {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    .beforeData {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        height: 100%;
+        width: 100%;
+        padding-top: 30px;
+        // border: 2px solid red;
+
+        img {
+            width: 500px;
+            // border: 1px solid yellow;
+        }
+
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+            // border: 1px solid yellow;
+        }
+    }
+
+    .stdata {
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        position: relative;
+        // border: 1px solid yellow;
+
+        img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 10px;
+        }
+
+        .stdataname {
+            font-size: 25px;
+        }
+
+        .space {
+            flex: auto;
+        }
+
+        span {
+            display: inline-block;
+            border: $lightgray solid 1px;
+            border-radius: 50%;
+            color: $lightgray;
+            font-weight: 300;
+            padding: 3px;
+            cursor: pointer;
+        }
+
+        .stCommands {
+            list-style: none;
+            position: absolute;
+            top: 50%;
+            right: 75px;
+            transform: translate(0%, -50%);
+            border-radius: 5px;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 300ms;
+            transition-timing-function: ease-in;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -14px;
+                transform: translate(0%, -50%);
+                border-width: 7px;
+                border-style: solid;
+                border-color: transparent transparent transparent rgba(0, 0, 0, 0.3);
+            }
+
+            li {
+                padding: 5px 10px;
+                font-size: 13px;
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.3);
+                text-align: center;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.075);
+                }
+
+                &:nth-child(1) {
+                    border-radius: 5px 5px 0px 0px;
+                }
+
+                &:nth-last-child(1) {
+                    border-radius: 0px 0px 5px 5px;
+                }
+            }
+        }
+
+        .active {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    .stenteringlistwrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        padding: 20px;
+
+        .listtitles {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            padding: 1px 20px;
+            margin-bottom: 5px;
+            padding-right: 25px;
+
+
+            * {
+                font-size: 13px;
+                color: $lightgray;
+            }
+
+            .state {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                text-transform: capitalize;
+            }
+
+            .building {
+                flex: 1;
+            }
+
+            .datecolumn {
+                flex: 1;
+            }
+        }
+
+        .stenteringlist {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 5px;
+
+            &::-webkit-scrollbar {
+                width: 2px;
+                background-color: rgba(255, 255, 255, 0.3);
+                border-radius: 2px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(255, 255, 255, 0.5);
+                outline: none;
+                border-radius: 2px;
+            }
+        }
+
+        .enteringitems {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            border-radius: 3px;
+            padding: 1px 20px;
+
+            &:nth-child(odd) {
+                background-color: #1f1f1f;
+            }
+
+            .state {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                text-transform: capitalize;
+                font-size: 13px;
+
+                li {
+                    list-style: none;
+                    font-weight: 500;
+                    width: 50px;
+                    padding: 2px;
+                    border-radius: 2px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .enter,
+                .exit {
+                    color: $green;
+                    background-color: rgba($color: $green, $alpha: .2);
+                }
+
+                .late {
+                    color: $red;
+                    background-color: rgba($color: $red, $alpha: .2);
+                }
+            }
+
+            .building {
+                flex: 1;
+            }
+
+            .datecolumn {
+                flex: 1;
+
+                .date {
+                    font-size: 15px;
+                }
+
+                .clock {
+                    font-size: 12px;
+                    color: $lightgray;
+                }
+            }
+        }
+    }
+}

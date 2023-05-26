@@ -1,0 +1,26 @@
+{
+  "name": "serv 3.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --ignore Frontend/ index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "deep-email-validator": "^0.1.21",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "firebase": "^9.21.0",
+    "kickbox": "^2.0.4",
+    "mongoose": "^7.1.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.2",
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.1"
+  }
+}

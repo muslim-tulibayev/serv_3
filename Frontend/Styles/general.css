@@ -1,0 +1,1011 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.borEffect {
+  border-top: #575663 solid 1px;
+  border-left: #3d3b3e solid 1px;
+  border-right: #3c3d3f solid 1px;
+  border-bottom: #5a4c53 solid 1px;
+}
+
+.text-gradient {
+  background-image: linear-gradient(45deg, #f6d059, #3584dd, #e825d7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+}
+*::-webkit-scrollbar {
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+  border-radius: 2px;
+}
+
+font {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.VIpgJd-ZVi9od-aZ2wEe,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+#goog-gt-,
+.VIpgJd-suEOdc,
+.VIpgJd-yAWNEb-L7lbkb,
+.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+  background-color: #292929;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.navbar {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  background-color: #212121;
+  border-bottom: #020202 1px solid;
+  position: relative;
+}
+.navbar .leftSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+}
+.navbar .leftSide img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.navbar .leftSide .platformInfo {
+  position: absolute;
+  top: 36px;
+  left: 5px;
+  width: 500px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  overflow: hidden;
+  padding: 10px 20px;
+  cursor: auto;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 300ms;
+  transition-timing-function: ease-in;
+}
+.navbar .leftSide .platformInfo .brands {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  gap: 10px;
+}
+.navbar .leftSide .platformInfo .brands img {
+  width: 50px;
+  height: 50px;
+}
+.navbar .leftSide .platformInfo .brands h1 {
+  font-weight: 600;
+}
+.navbar .leftSide .platformInfo .description {
+  margin: 20px 0px;
+  text-align: justify;
+  text-indent: 30px;
+  font-size: 15px;
+}
+.navbar .leftSide .platformInfo .founderInfo {
+  margin-bottom: 10px;
+  text-align: center;
+  color: gray;
+  font-weight: 400;
+}
+.navbar .leftSide .active {
+  visibility: visible;
+  opacity: 1;
+}
+.navbar .leftSide .onoff {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b84ff;
+  border-radius: 50px;
+  padding: 0px;
+  opacity: 1;
+  transition: all 500ms;
+  transition-timing-function: ease-in-out;
+}
+.navbar .leftSide .onoff span {
+  width: 0px;
+  overflow: hidden;
+  font-size: 13px;
+  height: 100%;
+  transition: all 500ms;
+  transition-timing-function: ease-in-out;
+}
+.navbar .leftSide .onoff .off {
+  display: none;
+}
+.navbar .leftSide .onoff img {
+  margin: 0px;
+  padding: 2px;
+}
+.navbar .leftSide .offline {
+  background-color: #a1a1aa;
+  border-radius: 50px;
+  padding: 0px 5px;
+  opacity: 0.3;
+}
+.navbar .leftSide .offline .on {
+  display: none;
+}
+.navbar .leftSide .offline .off {
+  display: block;
+}
+.navbar .leftSide .offline span {
+  width: 41px;
+}
+.navbar .notificationAndUserframeWrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.navbar .notification {
+  cursor: pointer;
+  margin-right: 5px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar .notification span {
+  font-size: 20px;
+  font-weight: 200;
+  color: rgb(148, 148, 148);
+  background-color: rgba(148, 148, 148, 0.25);
+  display: inline-block;
+  border-radius: 50%;
+  padding: 1px;
+}
+.navbar .notification .nswrapper {
+  position: absolute;
+  top: 35px;
+  right: 5px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  overflow: hidden;
+  padding: 10px 20px;
+  cursor: auto;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 300ms;
+  transition-timing-function: ease-in;
+}
+.navbar .notification .nswrapper .nstitles {
+  color: gray;
+  font-size: 13px;
+}
+.navbar .notification .nswrapper .nsitems {
+  border-radius: 5px;
+  padding: 5px;
+  margin: 2px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.navbar .notification .nswrapper .editableItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2px;
+  margin-bottom: 5px;
+}
+.navbar .notification .nswrapper .editableItems select {
+  flex: 1;
+  margin: 0;
+  margin-left: 5px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+}
+.navbar .notification .nswrapper .editableItems select::-webkit-outer-spin-button, .navbar .notification .nswrapper .editableItems select::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+.navbar .notification .nswrapper .editableItems select:disabled {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 2px 0px;
+  margin-top: 0px;
+  background-color: transparent;
+  color: white;
+  opacity: 1;
+}
+.navbar .notification .nswrapper .editableItems select option {
+  background-color: #292929;
+}
+.navbar .notification .nswrapper .editableItems button {
+  background-color: #26a845;
+  border: none;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.navbar .notification .nswrapper .editableItems button:disabled {
+  filter: grayscale(1);
+  cursor: not-allowed;
+}
+.navbar .notification .nswrapper .editableItems .save {
+  display: none;
+}
+.navbar .notification .nswrapper .editableItemsActive .edit {
+  display: none;
+}
+.navbar .notification .nswrapper .editableItemsActive .save {
+  display: block;
+}
+.navbar .notification .nswrapper .nscomment {
+  width: 100%;
+  height: 90px;
+  overflow: auto;
+}
+.navbar .notification .nswrapper .nscomment::-webkit-scrollbar {
+  width: 2px;
+}
+.navbar .notification .nswrapper .nscomment::-webkit-scrollbar-thumb {
+  background-color: darkgray;
+  outline: none;
+}
+.navbar .notification .nswrapper .nsbuttons {
+  margin-top: 10px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.navbar .notification .nswrapper .nsbuttons button {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 48%;
+  border: none;
+  padding: 5px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.navbar .notification .active {
+  visibility: visible;
+  opacity: 1;
+}
+.navbar .active span {
+  font-weight: 300;
+  color: rgb(253, 36, 36);
+  background-color: rgba(253, 36, 36, 0.3);
+}
+.navbar .userframe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.navbar .userframe img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  cursor: pointer;
+}
+.navbar .userframe .userframeWin {
+  position: absolute;
+  top: 35px;
+  right: 5px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  overflow: hidden;
+  padding: 10px 20px;
+  cursor: auto;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 300ms;
+  transition-timing-function: ease-in;
+}
+.navbar .userframe .userframeWin img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+.navbar .userframe .userframeWin .userName {
+  text-align: center;
+  width: 270px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 10px 0px;
+}
+.navbar .userframe .userframeWin .nstitles {
+  color: gray;
+  font-size: 13px;
+}
+.navbar .userframe .userframeWin .nsitems {
+  border-radius: 5px;
+  padding: 5px;
+  margin: 2px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.navbar .userframe .userframeWin .nsbuttons {
+  margin-top: 10px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.navbar .userframe .userframeWin .nsbuttons button {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 48%;
+  border: none;
+  padding: 5px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.navbar .userframe .active {
+  visibility: visible;
+  opacity: 1;
+}
+.navbar .topLoader {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  z-index: 2;
+  border-radius: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 300ms;
+}
+.navbar .topLoaderActive {
+  visibility: visible;
+  opacity: 1;
+}
+.navbar .backgroundAnimation {
+  height: 2px;
+  background: #27c4f5 linear-gradient(to right, #27c4f5, #a307ba, #fd8d32, #70c050, #27c4f5);
+  background-size: 500%;
+  animation: 2s linear infinite barprogress, 0.3s fadein;
+  width: 100%;
+}
+@keyframes barprogress {
+  0% {
+    background-position: 0% 0;
+  }
+  to {
+    background-position: 125% 0;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.navigatorPanel {
+  height: 50px;
+  border-radius: 13px;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  opacity: 0.3;
+  transition: opacity 500ms;
+  z-index: 1;
+}
+.navigatorPanel #allusersdataAnchor {
+  display: none;
+}
+.navigatorPanel .anchors {
+  list-style-type: none;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px;
+  padding-bottom: 4px;
+}
+.navigatorPanel .anchors:hover .anchorText {
+  visibility: visible;
+}
+.navigatorPanel .anchors img {
+  width: 35px;
+  height: 35px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.navigatorPanel .anchors svg {
+  width: 35px;
+  height: 35px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 1px;
+}
+.navigatorPanel .anchors .anchorText {
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  text-align: center;
+  font-size: 13px;
+  padding: 5px 0px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+  bottom: 120%;
+  width: 100px;
+}
+.navigatorPanel .anchors .anchorText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.7) transparent transparent transparent;
+}
+.navigatorPanel .bottomDotted::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 0px;
+  height: 0px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+.navigatorPanel .line {
+  width: 0px;
+  height: 35px;
+  border-left: 1px solid white;
+  margin: 0px 5px;
+}
+.navigatorPanel .rightAnchors {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 50px;
+  transition: all 500ms;
+  transition-timing-function: linear;
+  padding-bottom: 0px;
+}
+.navigatorPanel .rightAnchors .search,
+.navigatorPanel .rightAnchors .filter,
+.navigatorPanel .rightAnchors .text {
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  font-weight: 100;
+  transition: all 500ms;
+  transition-timing-function: linear;
+}
+.navigatorPanel .rightAnchors .text {
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
+  width: 0px;
+  overflow: hidden;
+}
+.navigatorPanel .rightAnchors .anchorText {
+  bottom: 53px;
+}
+.navigatorPanel .active {
+  padding: 0px 10px;
+  margin: 0px 5px;
+  border: #26a845 solid 1px;
+}
+.navigatorPanel .active .search,
+.navigatorPanel .active .filter {
+  color: #26a845;
+}
+.navigatorPanel .active .text {
+  width: 50px;
+  color: #26a845;
+}
+
+.active {
+  opacity: 1;
+}
+
+.askWin {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 250ms;
+  transition-timing-function: linear;
+}
+.askWin .askwrapper {
+  background-color: #292929;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.askWin .askwrapper p {
+  text-align: center;
+}
+.askWin .askwrapper .btnwrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+.askWin .askwrapper .btnwrapper button {
+  padding: 5px 17px;
+  border-radius: 5px;
+  margin: 0px 5px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), transparent);
+}
+.askWin .askwrapper .btnwrapper .greenBtn {
+  background-color: #26a845;
+}
+.askWin .askwrapper .btnwrapper .redBtn {
+  background-color: rgb(253, 36, 36);
+}
+.askWin .askwrapper .btnwrapper .blueBtn {
+  background-color: #0b84ff;
+}
+
+.askWinActive {
+  visibility: visible;
+  opacity: 1;
+}
+
+#editAccountWin {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: 5;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+#editAccountWin .main {
+  width: 450px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 20px;
+}
+#editAccountWin .main .imgInputWrapperChange {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+#editAccountWin .main .imgInputWrapperChange #imgChosenChange {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+#editAccountWin .main .imgInputWrapperChange #chsImgChange {
+  display: none;
+}
+#editAccountWin .main .imgInputWrapperChange label {
+  background-color: #0b84ff;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), transparent);
+  padding: 5px 0px;
+  width: 100px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+}
+#editAccountWin .main .items {
+  margin: 10px 0px;
+}
+#editAccountWin .main .items .title {
+  color: gray;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+#editAccountWin .main .items .values {
+  padding: 3px 10px;
+  display: block;
+  font-size: 16px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid transparent;
+}
+#editAccountWin .main .items .values:focus {
+  border: 1px solid #0b84ff;
+}
+#editAccountWin .main .items-pass {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0px 2px;
+  border-radius: 5px;
+}
+#editAccountWin .main .items-pass:hover {
+  background-color: black;
+}
+#editAccountWin .main .items-pass .title {
+  font-size: 16px;
+  color: white;
+}
+#editAccountWin .main .items-pass span {
+  color: white;
+}
+#editAccountWin .main .changePassWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 0px;
+  transition: all 500ms;
+  overflow: hidden;
+}
+#editAccountWin .main .changePassWrapper input {
+  padding: 3px 10px;
+  display: block;
+  font-size: 16px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  background-color: black;
+  border: 1px solid transparent;
+}
+#editAccountWin .main .changePassWrapper input:focus {
+  border: 1px solid #0b84ff;
+}
+#editAccountWin .main .changePassWrapper input::-moz-placeholder {
+  color: white;
+  font-size: 14px;
+}
+#editAccountWin .main .changePassWrapper input::placeholder {
+  color: white;
+  font-size: 14px;
+}
+#editAccountWin .main .changePassWrapper .wrong {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: red;
+}
+#editAccountWin .main .changePassWrapper .wrong::-moz-placeholder {
+  color: red;
+}
+#editAccountWin .main .changePassWrapper .wrong::placeholder {
+  color: red;
+}
+#editAccountWin .main .changePassWrapper .wrong:focus {
+  border: 1px solid red;
+}
+#editAccountWin .main .changePassWrapperActive {
+  height: 60px;
+}
+#editAccountWin .main .btnsWrapper {
+  display: flex;
+  gap: 5px;
+  margin-top: 20px;
+}
+#editAccountWin .main .btnsWrapper button {
+  border: none;
+  outline: none;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), transparent);
+  font-size: 13px;
+  flex: 1;
+  background-color: red;
+  transition: all 500ms;
+  transition-timing-function: ease;
+}
+#editAccountWin .main .btnsWrapper button:disabled {
+  filter: grayscale(1);
+  cursor: not-allowed;
+}
+#editAccountWin .main .btnsWrapper button .txt {
+  color: white !important;
+}
+#editAccountWin .main .btnsWrapper button .loader {
+  display: none;
+}
+#editAccountWin .main .btnsWrapper .btnOnload .txt {
+  display: none;
+}
+#editAccountWin .main .btnsWrapper .btnOnload .loader {
+  display: block;
+}
+#editAccountWin .main .btnsWrapper .btnOnload:disabled {
+  filter: grayscale(0);
+  cursor: progress;
+}
+#editAccountWin .main .btnsWrapper .save {
+  background-color: #26a845;
+}
+
+.loadWin {
+  background-color: black;
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  opacity: 1;
+  visibility: visible;
+  transition: all 500ms;
+  transition-timing-function: ease;
+}
+.loadWin .letter {
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  opacity: 0.5;
+  font-size: 70px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #016d35;
+  border-radius: 50%;
+}
+.loadWin .containerLoad {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  height: 96px;
+  width: 96px;
+  animation: rotate_3922 1.2s linear infinite;
+  background-color: #016d35;
+  background-image: linear-gradient(#016d35, #00ff7b, white);
+}
+.loadWin .containerLoad span {
+  position: absolute;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  background-color: #016d35;
+  background-image: linear-gradient(#016d35, #00ff7b, white);
+}
+.loadWin .containerLoad span:nth-of-type(1) {
+  filter: blur(5px);
+}
+.loadWin .containerLoad span:nth-of-type(2) {
+  filter: blur(10px);
+}
+.loadWin .containerLoad span:nth-of-type(3) {
+  filter: blur(25px);
+}
+.loadWin .containerLoad span:nth-of-type(4) {
+  filter: blur(50px);
+}
+.loadWin .containerLoad::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+}
+@keyframes rotate_3922 {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.loadSilence {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+@keyframes fade458 {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+.loader div {
+  width: 8%;
+  height: 24%;
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  opacity: 0;
+  border-radius: 50px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  animation: fade458 1s linear infinite;
+}
+.loader .bar1 {
+  transform: rotate(0deg) translate(0, -130%);
+  animation-delay: 0s;
+}
+.loader .bar2 {
+  transform: rotate(30deg) translate(0, -130%);
+  animation-delay: -1.1s;
+}
+.loader .bar3 {
+  transform: rotate(60deg) translate(0, -130%);
+  animation-delay: -1s;
+}
+.loader .bar4 {
+  transform: rotate(90deg) translate(0, -130%);
+  animation-delay: -0.9s;
+}
+.loader .bar5 {
+  transform: rotate(120deg) translate(0, -130%);
+  animation-delay: -0.8s;
+}
+.loader .bar6 {
+  transform: rotate(150deg) translate(0, -130%);
+  animation-delay: -0.7s;
+}
+.loader .bar7 {
+  transform: rotate(180deg) translate(0, -130%);
+  animation-delay: -0.6s;
+}
+.loader .bar8 {
+  transform: rotate(210deg) translate(0, -130%);
+  animation-delay: -0.5s;
+}
+.loader .bar9 {
+  transform: rotate(240deg) translate(0, -130%);
+  animation-delay: -0.4s;
+}
+.loader .bar10 {
+  transform: rotate(270deg) translate(0, -130%);
+  animation-delay: -0.3s;
+}
+.loader .bar11 {
+  transform: rotate(300deg) translate(0, -130%);
+  animation-delay: -0.2s;
+}
+.loader .bar12 {
+  transform: rotate(330deg) translate(0, -130%);
+  animation-delay: -0.1s;
+}
+
+.newNotifFrame {
+  position: absolute;
+  top: 35px;
+  right: 5px;
+  z-index: 6;
+  display: grid;
+  width: 300px;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: repeat(3, 20px);
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  cursor: auto;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 300ms;
+  transition-timing-function: linear;
+}
+.newNotifFrame span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-row: span 3;
+  font-size: 30px;
+  color: red;
+}
+.newNotifFrame .title {
+  color: gray;
+  font-weight: 400;
+}
+.newNotifFrame p {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.newNotifFrameActive {
+  visibility: visible;
+  opacity: 1;
+}/*# sourceMappingURL=general.css.map */

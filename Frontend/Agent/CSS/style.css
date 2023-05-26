@@ -1,0 +1,287 @@
+#container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+#container .left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#container .left img {
+  width: 550px;
+}
+#container .left #reader {
+  display: none;
+}
+#container .left #result {
+  display: none;
+}
+#container .leftActive img {
+  display: none;
+}
+#container .leftActive video {
+  transform: rotateY(180deg);
+}
+#container .leftActive #reader {
+  display: block;
+  width: 550px;
+  border: 2px solid #a1a1aa;
+  border-radius: 30px;
+  overflow: hidden;
+}
+#container .right {
+  width: 400px;
+}
+#container .right button {
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.151);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 15px;
+}
+#container .right .startBtn {
+  display: block;
+}
+#container .right .stopBtn {
+  display: none;
+}
+#container .rightActive .startBtn {
+  display: none;
+}
+#container .rightActive .stopBtn {
+  display: block;
+}
+
+.turnsResWin {
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  overflow: hidden;
+  z-index: 2;
+  transition: all 300ms;
+  transition-timing-function: linear;
+}
+.turnsResWin .loader {
+  display: block;
+}
+.turnsResWin .turnsResInfo {
+  border-radius: 10px;
+  background-color: #292929;
+  overflow: hidden;
+  width: 550px;
+  padding: 20px 30px;
+  display: none;
+}
+.turnsResWin .turnsResInfo .above {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  grid-template-rows: repeat(3, 35px);
+  grid-gap: 5px;
+}
+.turnsResWin .turnsResInfo .above .img_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-row-start: 1;
+  grid-row: span 3;
+}
+.turnsResWin .turnsResInfo .above .img_wrapper img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.turnsResWin .turnsResInfo .above .info_item_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.turnsResWin .turnsResInfo .above .info_item_wrapper span {
+  display: inline-block;
+  color: #a1a1aa;
+  font-size: 10px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.turnsResWin .turnsResInfo .above .info_item_wrapper p {
+  font-size: 15px;
+  overflow: auto;
+  padding: 2px 0px;
+}
+.turnsResWin .turnsResInfo .above .info_item_wrapper p::-webkit-scrollbar {
+  cursor: grab;
+  background: rgba(255, 255, 255, 0.5);
+  height: 2px;
+  border-radius: 3px;
+}
+.turnsResWin .turnsResInfo .above .info_item_wrapper p::-webkit-scrollbar-thumb {
+  cursor: grab;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+}
+.turnsResWin .turnsResInfo .line {
+  border-top: 1px solid #a1a1aa;
+  margin: 20px auto;
+  width: 80%;
+}
+.turnsResWin .turnsResInfo .below {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 7px;
+  padding: 10px 20px;
+}
+.turnsResWin .turnsResInfo .below .info_item_wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.turnsResWin .turnsResInfo .below .info_item_wrapper span {
+  display: inline-block;
+  color: #a1a1aa;
+  font-size: 15px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.turnsResWin .turnsResInfo .below .info_item_wrapper p {
+  font-size: 15px;
+  overflow: auto;
+  margin-left: 10px;
+  text-transform: capitalize;
+}
+.turnsResWin .turnsResInfo .below .info_item_wrapper p::-webkit-scrollbar {
+  cursor: grab;
+  background: rgba(255, 255, 255, 0.5);
+  height: 2px;
+  border-radius: 3px;
+}
+.turnsResWin .turnsResInfo .below .info_item_wrapper p::-webkit-scrollbar-thumb {
+  cursor: grab;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+}
+.turnsResWin .turnsResInfo .feedback {
+  margin-top: 10px;
+  color: #a1a1aa;
+  font-size: 13px;
+  text-align: center;
+  padding: 0px 20px;
+}
+.turnsResWin .turnsResInfo button {
+  background-color: #0b84ff;
+  display: block;
+  margin: 0px auto;
+  margin-top: 10px;
+  width: 150px;
+  padding: 5px 0px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-weight: bolder;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), transparent);
+  cursor: pointer;
+}
+
+.turnsResWinActive {
+  visibility: visible;
+  opacity: 1;
+}
+
+.turnsResWinReady .loader {
+  display: none;
+}
+.turnsResWinReady .turnsResInfo {
+  display: block;
+}
+
+.loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+@keyframes fade458 {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+.loader div {
+  width: 8%;
+  height: 24%;
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  opacity: 0;
+  border-radius: 50px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  animation: fade458 1s linear infinite;
+}
+.loader .bar1 {
+  transform: rotate(0deg) translate(0, -130%);
+  animation-delay: 0s;
+}
+.loader .bar2 {
+  transform: rotate(30deg) translate(0, -130%);
+  animation-delay: -1.1s;
+}
+.loader .bar3 {
+  transform: rotate(60deg) translate(0, -130%);
+  animation-delay: -1s;
+}
+.loader .bar4 {
+  transform: rotate(90deg) translate(0, -130%);
+  animation-delay: -0.9s;
+}
+.loader .bar5 {
+  transform: rotate(120deg) translate(0, -130%);
+  animation-delay: -0.8s;
+}
+.loader .bar6 {
+  transform: rotate(150deg) translate(0, -130%);
+  animation-delay: -0.7s;
+}
+.loader .bar7 {
+  transform: rotate(180deg) translate(0, -130%);
+  animation-delay: -0.6s;
+}
+.loader .bar8 {
+  transform: rotate(210deg) translate(0, -130%);
+  animation-delay: -0.5s;
+}
+.loader .bar9 {
+  transform: rotate(240deg) translate(0, -130%);
+  animation-delay: -0.4s;
+}
+.loader .bar10 {
+  transform: rotate(270deg) translate(0, -130%);
+  animation-delay: -0.3s;
+}
+.loader .bar11 {
+  transform: rotate(300deg) translate(0, -130%);
+  animation-delay: -0.2s;
+}
+.loader .bar12 {
+  transform: rotate(330deg) translate(0, -130%);
+  animation-delay: -0.1s;
+}/*# sourceMappingURL=style.css.map */

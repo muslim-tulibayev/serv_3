@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/general.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="/src/letter-m.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style/generateqrpage.css">
+    <title> Generate Qr </title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="leftSide">
+            <img src="/src/letter-m.png" onclick="onPlatInfoBtnClick(event)">
+
+            <div class="platformInfo borEffect" onclick="onThisWindowClick(event)">
+                <div class="brands">
+                    <img src="/src/letter-m.png">
+                    <h1 class="text-gradient"> MTUIT-IOS29 </h1>
+                </div>
+                <div class="description">
+                    On the platform, you can <strong> register </strong> university students and <strong> monitor
+                        their
+                        entry and exit </strong> to dormitories,
+                    university (and other) buildings. Together with the university administration, you can <strong>
+                        control
+                        the entry
+                        and exit </strong> of students and <strong> create and change the student list </strong>.
+                </div>
+                <p class="founderInfo"> Founder and Owner: Muslim </p>
+            </div>
+
+            <div class="onoff notranslate" id="onoff">
+                <img class="on" src="/src/online.png">
+                <img class="off" src="/src/offline.png">
+                <span> offline <span>
+            </div>
+        </div>
+        <div class="notificationAndUserframeWrapper">
+            <div class="notification">
+                <span class="material-symbols-rounded notranslate"> notifications </span>
+            </div>
+            <div class="userframe" onclick="onUserBtnClick(event)">
+                <img src="/src/avatar.jpg" id="userProfileImg">
+                <div class="userframeWin borEffect" onclick="onThisWindowClick(event)">
+                    <!-- userframe items -->
+                </div>
+            </div>
+        </div>
+        <span class="backgroundAnimation topLoader" id="topLoader"></span>
+    </div>
+    <ul class="navigatorPanel" id="navigatorPanel" onmouseenter="toggleNavigatorPanel(event)"
+        onmouseleave="toggleNavigatorPanel(event)">
+        <li class="anchors">
+            <img src="/src/home.png" class="img" onclick="navigateTo('/')">
+            <span class="anchorText"> Home </span>
+        </li>
+        <li class="anchors">
+            <img src="/src/pages.png" class="img" onclick="navigateTo('/addnewst')">
+            <span class="anchorText"> Add New Student </span>
+        </li>
+        <li class="anchors">
+            <img src="/src/iTunes_U.png" class="img" onclick="navigateTo('/allstsdata')">
+            <span class="anchorText"> All Students Data </span>
+        </li>
+        <li class="anchors bottomDotted">
+            <svg viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M15 6C15 5.06812 15 4.60218 15.1522 4.23463C15.3552 3.74458 15.7446 3.35523 16.2346 3.15224C16.6022 3 17.0681 3 18 3C18.9319 3 19.3978 3 19.7654 3.15224C20.2554 3.35523 20.6448 3.74458 20.8478 4.23463C21 4.60218 21 5.06812 21 6C21 6.93188 21 7.39782 20.8478 7.76537C20.6448 8.25542 20.2554 8.64477 19.7654 8.84776C19.3978 9 18.9319 9 18 9C17.0681 9 16.6022 9 16.2346 8.84776C15.7446 8.64477 15.3552 8.25542 15.1522 7.76537C15 7.39782 15 6.93188 15 6Z"
+                    stroke="#323232" stroke-width="2" stroke-linejoin="round" />
+                <path
+                    d="M3 6C3 5.06812 3 4.60218 3.15224 4.23463C3.35523 3.74458 3.74458 3.35523 4.23463 3.15224C4.60218 3 5.06812 3 6 3C6.93188 3 7.39782 3 7.76537 3.15224C8.25542 3.35523 8.64477 3.74458 8.84776 4.23463C9 4.60218 9 5.06812 9 6C9 6.93188 9 7.39782 8.84776 7.76537C8.64477 8.25542 8.25542 8.64477 7.76537 8.84776C7.39782 9 6.93188 9 6 9C5.06812 9 4.60218 9 4.23463 8.84776C3.74458 8.64477 3.35523 8.25542 3.15224 7.76537C3 7.39782 3 6.93188 3 6Z"
+                    stroke="#323232" stroke-width="2" stroke-linejoin="round" />
+                <path
+                    d="M3 18C3 17.0681 3 16.6022 3.15224 16.2346C3.35523 15.7446 3.74458 15.3552 4.23463 15.1522C4.60218 15 5.06812 15 6 15C6.93188 15 7.39782 15 7.76537 15.1522C8.25542 15.3552 8.64477 15.7446 8.84776 16.2346C9 16.6022 9 17.0681 9 18C9 18.9319 9 19.3978 8.84776 19.7654C8.64477 20.2554 8.25542 20.6448 7.76537 20.8478C7.39782 21 6.93188 21 6 21C5.06812 21 4.60218 21 4.23463 20.8478C3.74458 20.6448 3.35523 20.2554 3.15224 19.7654C3 19.3978 3 18.9319 3 18Z"
+                    stroke="#323232" stroke-width="2" stroke-linejoin="round" />
+                <path d="M12 3V6" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M18 18H15" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M21 15H18" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9 12L3 12" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M21 12L13 12V12C12.4477 12 12 11.5523 12 11V11L12 9" stroke="#323232" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M14.5 21L20 21V21C20.5523 21 21 20.5523 21 20V20L21 18" stroke="#323232" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12 21L12 16.2L12 16C12 15.4477 12.4477 15 13 15V15L15 15" stroke="#323232" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="anchorText"> Generate Qr </span>
+        </li>
+        <li class="anchors">
+            <img src="/src/numbers.png" class="img" onclick="navigateTo('/ststate')">
+            <span class="anchorText"> Student State </span>
+        </li>
+        <li class="anchors" id="allusersdataAnchor">
+            <img src="/src/files.png" onclick="navigateTo('/allusersdata')">
+            <span class="anchorText"> All Users Data </span>
+        </li>
+        <!-- Line and Right Anchors -->
+    </ul>
+
+    <div class="container">
+        <div class="searchAndNavigator">
+            <div class="space"></div>
+            <div class="searchwrapper">
+                <span class="material-symbols-rounded notranslate"> search </span>
+                <input type="text" class="searchbox-input" placeholder="Search" onkeypress="searchSt(event)">
+            </div>
+            <div class="space"></div>
+        </div>
+
+        <ul id="stsListWrapper" class="stsListWrapper">
+            <!-- Sts list items -->
+            <div class="mainImgWrapper">
+                <img src="/src/windows-barcode-hero.svg" alt="">
+            </div>
+        </ul>
+
+        <div class="resultWin" id="resultWin">
+            <!-- Card -->
+        </div>
+    </div>
+
+    <div class="newNotifFrame" id="newNotifFrame">
+        <span class="material-symbols-rounded notranslate"> notifications </span>
+        <!-- New request info -->
+    </div>
+    <audio id="notifAudio">
+        <source src="/src/Apple - Iphone ! Message.mp3">
+    </audio>
+
+    <div id="editAccountWin">
+        <!-- Edit Account items -->
+    </div>
+
+    <div class="askWin" id="askWin">
+        <!-- Ask -->
+    </div>
+
+    <div class="askWin" id="alertWin">
+        <!-- Alert -->
+    </div>
+
+    <div class="loadWin">
+        <p class="letter"> M </p>
+        <div class="containerLoad">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div style="display: none !important;" id="google_translate_element"></div>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                { pageLanguage: 'en' },
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.21.6.min.js"></script>
+    <script src="/script/general.js"></script>
+    <script src="/script/generateqrpage.js"></script>
+</body>
+
+</html>

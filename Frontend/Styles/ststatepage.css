@@ -1,0 +1,306 @@
+.pseudospace {
+  height: 200px;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  overflow-y: auto;
+}
+
+.searchAndList {
+  height: 100%;
+  width: 300px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  background-image: url(./../../Src/macos-big-sur-apple-layers-fluidic-colorful-dark-wwdc-2020-3840x2160-1432.jpg);
+  background-size: cover;
+  overflow-y: auto;
+  background-position: center;
+}
+.searchAndList .blur {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  padding: 5px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.searchAndList .searchwrapper h5 {
+  color: white;
+  font-weight: 500;
+  margin: 5px 0;
+}
+.searchAndList .searchwrapper .searchbox {
+  border: solid 1px #a1a1aa;
+  border-radius: 7px;
+  display: flex;
+  height: 25px;
+  padding: 0px 5px;
+}
+.searchAndList .searchwrapper .searchbox span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a1a1aa;
+  font-size: 20px;
+  font-weight: 300;
+}
+.searchAndList .searchwrapper .searchbox .searchbox-input {
+  flex: auto;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 13px;
+  font-weight: 300;
+}
+.searchAndList .searchwrapper .searchbox .searchbox-input::-moz-placeholder {
+  color: #a1a1aa;
+}
+.searchAndList .searchwrapper .searchbox .searchbox-input::placeholder {
+  color: #a1a1aa;
+}
+.searchAndList .stlist {
+  flex: 1;
+  margin-top: 10px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+.searchAndList .stlist::-webkit-scrollbar {
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+.searchAndList .stlist::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+  border-radius: 2px;
+}
+.searchAndList .stlist .st {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
+  margin: 3px 0;
+  padding: 3px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.searchAndList .stlist .st:hover {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.searchAndList .stlist .st img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 5px;
+}
+.searchAndList .stlist .st .stnameAndGrnumWrapper {
+  flex: 1;
+}
+.searchAndList .stlist .st .stnameAndGrnumWrapper .stname {
+  font-size: 13px;
+}
+.searchAndList .stlist .st .stnameAndGrnumWrapper .grnum {
+  color: #a1a1aa;
+  font-size: 11px;
+}
+
+.standentering {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.standentering .beforeData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: 100%;
+  width: 100%;
+  padding-top: 30px;
+}
+.standentering .beforeData img {
+  width: 500px;
+}
+.standentering .beforeData p {
+  font-size: 20px;
+  margin-top: 20px;
+}
+.standentering .stdata {
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  position: relative;
+}
+.standentering .stdata img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 10px;
+}
+.standentering .stdata .stdataname {
+  font-size: 25px;
+}
+.standentering .stdata .space {
+  flex: auto;
+}
+.standentering .stdata span {
+  display: inline-block;
+  border: #a1a1aa solid 1px;
+  border-radius: 50%;
+  color: #a1a1aa;
+  font-weight: 300;
+  padding: 3px;
+  cursor: pointer;
+}
+.standentering .stdata .stCommands {
+  list-style: none;
+  position: absolute;
+  top: 50%;
+  right: 75px;
+  transform: translate(0%, -50%);
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 300ms;
+  transition-timing-function: ease-in;
+}
+.standentering .stdata .stCommands::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -14px;
+  transform: translate(0%, -50%);
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.3);
+}
+.standentering .stdata .stCommands li {
+  padding: 5px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+.standentering .stdata .stCommands li:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+.standentering .stdata .stCommands li:nth-child(1) {
+  border-radius: 5px 5px 0px 0px;
+}
+.standentering .stdata .stCommands li:nth-last-child(1) {
+  border-radius: 0px 0px 5px 5px;
+}
+.standentering .stdata .active {
+  visibility: visible;
+  opacity: 1;
+}
+.standentering .stenteringlistwrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 20px;
+}
+.standentering .stenteringlistwrapper .listtitles {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 1px 20px;
+  margin-bottom: 5px;
+  padding-right: 25px;
+}
+.standentering .stenteringlistwrapper .listtitles * {
+  font-size: 13px;
+  color: #a1a1aa;
+}
+.standentering .stenteringlistwrapper .listtitles .state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+.standentering .stenteringlistwrapper .listtitles .building {
+  flex: 1;
+}
+.standentering .stenteringlistwrapper .listtitles .datecolumn {
+  flex: 1;
+}
+.standentering .stenteringlistwrapper .stenteringlist {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+.standentering .stenteringlistwrapper .stenteringlist::-webkit-scrollbar {
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+.standentering .stenteringlistwrapper .stenteringlist::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+  border-radius: 2px;
+}
+.standentering .stenteringlistwrapper .enteringitems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border-radius: 3px;
+  padding: 1px 20px;
+}
+.standentering .stenteringlistwrapper .enteringitems:nth-child(odd) {
+  background-color: #1f1f1f;
+}
+.standentering .stenteringlistwrapper .enteringitems .state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  font-size: 13px;
+}
+.standentering .stenteringlistwrapper .enteringitems .state li {
+  list-style: none;
+  font-weight: 500;
+  width: 50px;
+  padding: 2px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.standentering .stenteringlistwrapper .enteringitems .state .enter,
+.standentering .stenteringlistwrapper .enteringitems .state .exit {
+  color: #26a845;
+  background-color: rgba(38, 168, 69, 0.2);
+}
+.standentering .stenteringlistwrapper .enteringitems .state .late {
+  color: rgb(253, 36, 36);
+  background-color: rgba(253, 36, 36, 0.2);
+}
+.standentering .stenteringlistwrapper .enteringitems .building {
+  flex: 1;
+}
+.standentering .stenteringlistwrapper .enteringitems .datecolumn {
+  flex: 1;
+}
+.standentering .stenteringlistwrapper .enteringitems .datecolumn .date {
+  font-size: 15px;
+}
+.standentering .stenteringlistwrapper .enteringitems .datecolumn .clock {
+  font-size: 12px;
+  color: #a1a1aa;
+}/*# sourceMappingURL=ststatepage.css.map */

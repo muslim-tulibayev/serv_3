@@ -1,0 +1,528 @@
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.searchAndNavigator {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0px;
+  width: 100%;
+  height: auto;
+}
+.searchAndNavigator .space {
+  height: 100%;
+  width: 200px;
+}
+.searchAndNavigator .searchwrapper {
+  border: solid 1px #343434;
+  border-radius: 7px;
+  display: flex;
+  height: 30px;
+  width: 500px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 500ms;
+  transition-timing-function: linear;
+}
+.searchAndNavigator .searchwrapper span {
+  color: #808080;
+  display: inline-block;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+.searchAndNavigator .searchwrapper .searchbox-input {
+  flex: auto;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding-right: 10px;
+}
+.searchAndNavigator .searchwrapper .searchbox-input::-moz-placeholder {
+  color: gray;
+}
+.searchAndNavigator .searchwrapper .searchbox-input::placeholder {
+  color: gray;
+}
+.searchAndNavigator .activeSearch {
+  margin: 5px 0px;
+  visibility: visible;
+  opacity: 1;
+}
+.searchAndNavigator .stListNavigator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 200px;
+}
+.searchAndNavigator .stListNavigator .navigatorNums {
+  display: inline-block;
+  margin: 0px 5px;
+}
+.searchAndNavigator .stListNavigator .navigatorArrows {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0px 3px;
+}
+.searchAndNavigator .stListNavigator .navigatorArrows:hover {
+  background-color: #0b84ff;
+}
+.searchAndNavigator .stListNavigator .navigatorArrows:disabled {
+  opacity: 0.5;
+}
+.searchAndNavigator .stListNavigator .navigatorArrows:disabled:hover {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.titleAndStsListWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.titleAndStsListWrapper .titleAndFilter {
+  width: 90%;
+  padding-right: 10px;
+}
+.titleAndStsListWrapper .filtersWrapper {
+  height: 0px;
+  overflow: hidden;
+  transition: height 500ms;
+  transition-timing-function: linear;
+}
+.titleAndStsListWrapper .filtersWrapper .filterTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #808080;
+}
+.titleAndStsListWrapper .filtersWrapper select,
+.titleAndStsListWrapper .filtersWrapper input {
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #343434;
+  border-radius: 5px;
+  margin: 0px 2px;
+  height: 100%;
+  text-align: center;
+}
+.titleAndStsListWrapper .filtersWrapper select[type=number],
+.titleAndStsListWrapper .filtersWrapper input[type=number] {
+  width: 96px;
+}
+.titleAndStsListWrapper .filtersWrapper select[type=number]::-moz-placeholder, .titleAndStsListWrapper .filtersWrapper input[type=number]::-moz-placeholder {
+  color: white;
+}
+.titleAndStsListWrapper .filtersWrapper select[type=number]::placeholder,
+.titleAndStsListWrapper .filtersWrapper input[type=number]::placeholder {
+  color: white;
+}
+.titleAndStsListWrapper .filtersWrapper select[type=number]::-webkit-outer-spin-button, .titleAndStsListWrapper .filtersWrapper select[type=number]::-webkit-inner-spin-button,
+.titleAndStsListWrapper .filtersWrapper input[type=number]::-webkit-outer-spin-button,
+.titleAndStsListWrapper .filtersWrapper input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+.titleAndStsListWrapper .filtersWrapper select option,
+.titleAndStsListWrapper .filtersWrapper input option {
+  background: #212121;
+  border: none;
+  outline: none;
+}
+.titleAndStsListWrapper .titlesWrapper,
+.titleAndStsListWrapper .filtersWrapper {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 0px 20px;
+  margin-right: 10px;
+}
+.titleAndStsListWrapper .titlesWrapper li,
+.titleAndStsListWrapper .filtersWrapper li {
+  width: 100px;
+  color: #a1a1aa;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.titleAndStsListWrapper .titlesWrapper .liNum,
+.titleAndStsListWrapper .filtersWrapper .liNum {
+  width: 50px;
+}
+.titleAndStsListWrapper .titlesWrapper .imgwrapper,
+.titleAndStsListWrapper .filtersWrapper .imgwrapper {
+  width: 40px;
+}
+.titleAndStsListWrapper .titlesWrapper .fullname,
+.titleAndStsListWrapper .filtersWrapper .fullname {
+  flex: 1;
+  padding: 0px 20px;
+  text-align: center;
+}
+.titleAndStsListWrapper .titlesWrapper .faculty,
+.titleAndStsListWrapper .filtersWrapper .faculty {
+  width: 220px;
+  text-align: center;
+}
+.titleAndStsListWrapper .titlesWrapper .grnum,
+.titleAndStsListWrapper .filtersWrapper .grnum {
+  width: 100px;
+  text-align: center;
+}
+.titleAndStsListWrapper .titlesWrapper .restype,
+.titleAndStsListWrapper .filtersWrapper .restype {
+  width: 150px;
+  text-align: center;
+}
+.titleAndStsListWrapper .titlesWrapper .turnstile,
+.titleAndStsListWrapper .filtersWrapper .turnstile {
+  width: 100px;
+}
+.titleAndStsListWrapper .titlesWrapper span,
+.titleAndStsListWrapper .filtersWrapper span {
+  visibility: hidden;
+  display: inline-block;
+  margin-left: 20px;
+}
+.titleAndStsListWrapper .stsListWrapper {
+  flex: 1;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+.titleAndStsListWrapper .stsListWrapper::-webkit-scrollbar {
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+.titleAndStsListWrapper .stsListWrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+  border-radius: 2px;
+}
+.titleAndStsListWrapper .stsListWrapper div {
+  font-weight: 200;
+}
+.titleAndStsListWrapper .stsListWrapper li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border-radius: 3px;
+  padding: 1px 20px;
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+.titleAndStsListWrapper .stsListWrapper li:nth-child(odd) {
+  background-color: #1f1f1f;
+  border: 1px solid transparent;
+}
+.titleAndStsListWrapper .stsListWrapper li:nth-last-child(1) {
+  height: 300px;
+  background-color: transparent;
+}
+.titleAndStsListWrapper .stsListWrapper li:nth-last-child(1):hover {
+  border: none;
+}
+.titleAndStsListWrapper .stsListWrapper li:hover {
+  border: #0b84ff solid 1px;
+}
+.titleAndStsListWrapper .stsListWrapper li .liNum {
+  width: 50px;
+}
+.titleAndStsListWrapper .stsListWrapper li .imgwrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.titleAndStsListWrapper .stsListWrapper li .imgwrapper img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.titleAndStsListWrapper .stsListWrapper li .fullname {
+  flex: 1;
+  padding: 0px 20px;
+}
+.titleAndStsListWrapper .stsListWrapper li .faculty {
+  width: 220px;
+  text-align: center;
+}
+.titleAndStsListWrapper .stsListWrapper li .grnum {
+  width: 100px;
+  text-align: center;
+}
+.titleAndStsListWrapper .stsListWrapper li .restype {
+  width: 150px;
+  text-align: center;
+}
+.titleAndStsListWrapper .stsListWrapper li button {
+  background-color: rgba(255, 255, 0, 0.3);
+  color: yellow;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 0px;
+  width: 100px;
+  cursor: pointer;
+}
+.titleAndStsListWrapper .stsListWrapper li span {
+  display: inline-block;
+  color: #a1a1aa;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.stInfoWinWrapper {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+.stInfoWinWrapper .stInfoWin {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 90%;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+.stInfoWinWrapper .stInfoWin .close {
+  font-size: 13px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border-radius: 50%;
+  padding: 1px;
+  cursor: pointer;
+  border: #a1a1aa solid 1px;
+  color: #a1a1aa;
+  background-color: rgba(161, 161, 170, 0.137254902);
+}
+.stInfoWinWrapper .stInfoWin .left {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding: 20px 0px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.stInfoWinWrapper .stInfoWin .left .img_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stInfoWinWrapper .stInfoWin .left .img_wrapper img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.stInfoWinWrapper .stInfoWin .left .stnames_wrapper {
+  margin-top: 20px;
+}
+.stInfoWinWrapper .stInfoWin .left .stnames_wrapper span {
+  color: #a1a1aa;
+  display: block;
+  text-align: center;
+  font-size: 13px;
+}
+.stInfoWinWrapper .stInfoWin .left .stnames_wrapper p {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0px 10px;
+}
+.stInfoWinWrapper .stInfoWin .left .pseudospace {
+  flex: 1;
+}
+.stInfoWinWrapper .stInfoWin .left .btns_wrapper {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.stInfoWinWrapper .stInfoWin .left .btns_wrapper button {
+  width: 90%;
+  padding: 5px 0px;
+  margin: 3px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: white;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), transparent);
+}
+.stInfoWinWrapper .stInfoWin .left .btns_wrapper button:disabled {
+  filter: grayscale(1);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.stInfoWinWrapper .stInfoWin .left .btns_wrapper #save,
+.stInfoWinWrapper .stInfoWin .left .btns_wrapper #edit {
+  background-color: #26a845;
+}
+.stInfoWinWrapper .stInfoWin .left .btns_wrapper #del,
+.stInfoWinWrapper .stInfoWin .left .btns_wrapper #cancel {
+  background-color: red;
+}
+.stInfoWinWrapper .stInfoWin .left .btns_wrapper .invisibleBtns {
+  visibility: hidden;
+  opacity: 0;
+}
+.stInfoWinWrapper .right {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #292929;
+}
+.stInfoWinWrapper .right .secRightTitle {
+  color: #a1a1aa;
+  font-size: 25px;
+}
+.stInfoWinWrapper .right .addInfosWrapper {
+  margin-top: 10px;
+  padding: 10px;
+}
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 7px;
+  position: relative;
+}
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper span {
+  display: inline-block;
+  color: #a1a1aa;
+  font-size: 10px;
+  font-weight: bolder;
+}
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper input,
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper select {
+  width: 70%;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #212121;
+  margin-top: 2px;
+  padding: 2px 5px;
+}
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper input::-webkit-outer-spin-button, .stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper input::-webkit-inner-spin-button,
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper select::-webkit-outer-spin-button,
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper select::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper input:disabled,
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper select:disabled {
+  padding: 2px 0px;
+  margin-top: 0px;
+  background-color: transparent;
+  opacity: 1;
+}
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper input:focus,
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper select:focus {
+  border: 1px solid #0b84ff;
+}
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper button {
+  display: block;
+  visibility: hidden;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translate(0, -50%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: #26a845;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.15), transparent);
+  border: none;
+  outline: none;
+}
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper p {
+  font-size: 20px;
+  overflow: auto;
+  padding: 2px 0px;
+}
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper p::-webkit-scrollbar {
+  cursor: grab;
+  background: rgba(255, 255, 255, 0.5);
+  height: 2px;
+  border-radius: 3px;
+}
+.stInfoWinWrapper .right .addInfosWrapper .info_item_wrapper p::-webkit-scrollbar-thumb {
+  cursor: grab;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+}
+.stInfoWinWrapper .right .pseudospace {
+  flex: 1;
+  display: block;
+}
+.stInfoWinWrapper .right .statesWrapper {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.stInfoWinWrapper .right .statesWrapper div {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0px 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.stInfoWinWrapper .right .statesWrapper div .title {
+  display: block;
+  text-align: center;
+  padding: 12px 0px;
+}
+.stInfoWinWrapper .right .statesWrapper div .num {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.stInfoWinWrapper .right .statesWrapper div:nth-last-child(1) {
+  background-color: rgba(253, 36, 36, 0.1);
+}/*# sourceMappingURL=allstsdatapage.css.map */

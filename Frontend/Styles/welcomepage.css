@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+}
+
+font {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.VIpgJd-ZVi9od-aZ2wEe,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+#goog-gt-,
+.VIpgJd-suEOdc,
+.VIpgJd-yAWNEb-L7lbkb,
+.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/src/macos-big-sur-apple-layers-fluidic-colorful-dark-wwdc-2020-3840x2160-1432.jpg");
+  background-size: cover;
+}
+
+.overlay {
+  width: 1000px;
+  height: 500px;
+  padding: 0rem 6rem;
+  display: flex;
+  align-items: center;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+}
+.overlay .overlay__inner {
+  max-width: 36rem;
+}
+.overlay .overlay__inner .overlay__title {
+  font-size: 1.875rem;
+  line-height: 2.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 2rem;
+}
+.overlay .overlay__inner .overlay__title .text-gradient {
+  background-image: linear-gradient(45deg, #f6d059, #3584dd, #e825d7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+.overlay .overlay__inner .overlay__description {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  margin-bottom: 3rem;
+}
+.overlay .overlay__inner .overlay__description strong {
+  font-weight: 600;
+}
+.overlay .overlay__inner .overlay__btns {
+  width: 100%;
+  max-width: 30rem;
+  display: flex;
+  justify-content: space-around;
+}
+.overlay .overlay__inner .overlay__btns .overlay__btn {
+  width: 45%;
+  height: 2.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  transition: transform 150ms ease;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.overlay .overlay__inner .overlay__btns .overlay__btn:hover {
+  transform: scale(1.05);
+}
+
+.loadWin {
+  background-color: black;
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  opacity: 1;
+  visibility: visible;
+  transition: all 500ms;
+  transition-timing-function: ease;
+}
+.loadWin .letter {
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  opacity: 0.5;
+  font-size: 70px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #016d35;
+  border-radius: 50%;
+}
+.loadWin .containerLoad {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  height: 96px;
+  width: 96px;
+  animation: rotate_3922 1.2s linear infinite;
+  background-color: #016d35;
+  background-image: linear-gradient(#016d35, #00ff7b, white);
+}
+.loadWin .containerLoad span {
+  position: absolute;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  background-color: #016d35;
+  background-image: linear-gradient(#016d35, #00ff7b, white);
+}
+.loadWin .containerLoad span:nth-of-type(1) {
+  filter: blur(5px);
+}
+.loadWin .containerLoad span:nth-of-type(2) {
+  filter: blur(10px);
+}
+.loadWin .containerLoad span:nth-of-type(3) {
+  filter: blur(25px);
+}
+.loadWin .containerLoad span:nth-of-type(4) {
+  filter: blur(50px);
+}
+.loadWin .containerLoad::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+}
+@keyframes rotate_3922 {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.loadSilence {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.lanFrame {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 10px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  padding: 3px 0px;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+}
+.lanFrame p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 13px;
+}
+.lanFrame p span {
+  font-size: 20px;
+}
+.lanFrame .lanList {
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  width: 100%;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  list-style: none;
+  overflow: hidden;
+  height: 0px;
+  transition: all 300ms;
+}
+.lanFrame .lanList li {
+  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+}
+.lanFrame .lanList li:hover {
+  background-color: rgba(255, 255, 255, 0.205);
+}
+.lanFrame .lanListActive {
+  height: 92px;
+}/*# sourceMappingURL=welcomepage.css.map */

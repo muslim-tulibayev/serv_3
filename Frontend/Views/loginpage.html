@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/loginpage.css">
+    <link rel="shortcut icon" href="/src/letter-m.png" type="image/x-icon">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title> LogIn </title>
+</head>
+
+<body>
+    <div class="login">
+        <h1>Login</h1>
+        <input type="email" name="e" placeholder="Email" required="required" />
+        <input type="password" name="p" placeholder="Password" required="required" />
+        <button class onclick="logincheck(event)">
+            <p class="txt"> Log in </p>
+            <div class="loader">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="bar4"></div>
+                <div class="bar5"></div>
+                <div class="bar6"></div>
+                <div class="bar7"></div>
+                <div class="bar8"></div>
+                <div class="bar9"></div>
+                <div class="bar10"></div>
+                <div class="bar11"></div>
+                <div class="bar12"></div>
+            </div>
+        </button>
+        <span> Do you have not an account? <a href="/signup"> Sign up </a> </span>
+        <p class="forgot" onclick="activeFrgtWin()"> Forgot password? </p>
+    </div>
+
+    <div class="frgtpWin">
+        <div class="frgtpsFrame login">
+            <img src="/src/lock.png">
+            <h1> Trouble logging in? </h1>
+            <p> Enter your email and we'll send you a confirmation code to get back into your account. </p>
+            <input type="email" placeholder="Email" id="frgtEmail">
+            <button class onclick="sendConfirmCode(event)">
+                <p class="txt"> Send </p>
+                <div class="loader">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                    <div class="bar4"></div>
+                    <div class="bar5"></div>
+                    <div class="bar6"></div>
+                    <div class="bar7"></div>
+                    <div class="bar8"></div>
+                    <div class="bar9"></div>
+                    <div class="bar10"></div>
+                    <div class="bar11"></div>
+                    <div class="bar12"></div>
+                </div>
+            </button>
+            <span onclick="activeFrgtWin()"> Back to login </span>
+        </div>
+    </div>
+
+    <div class="lanFrame" onclick="lanList()">
+        <p> Language <span class="material-symbols-rounded notranslate"> expand_more </span> </p>
+        <ul class="lanList">
+            <li onclick="chooseLan('en')"> English </li>
+            <li onclick="chooseLan('ru')"> Russian </li>
+            <li onclick="chooseLan('ar')"> Arabic </li>
+            <li onclick="chooseLan('uz')"> Uzbek </li>
+        </ul>
+    </div>
+
+    <div class="askWin" id="alertWin">
+        <!-- Alert -->
+    </div>
+
+    <div class="loadWin">
+        <p class="letter"> M </p>
+        <div class="containerLoad">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div style="display: none !important;" id="google_translate_element"></div>
+
+    <script src="/script/loginpage.js"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                { pageLanguage: 'en' },
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+
+</html>
