@@ -4,33 +4,7 @@ const preValues = {
     agentbuilding: ''
 }
 
-window.addEventListener('load', async () => {
-    // const formData = [
-    //     document.cookie,
-    //     document.cookie
-    // ]
-    // // Set user frame and Set user dbrank
-    // const user = await fetch('/sec/getuser', {
-    //     method: 'POST',
-    //     headers: { 'Content-type': 'application/json' },
-    //     body: JSON.stringify(formData)
-    // })
-    // const userData = await user.json()
-    // const dbrank = userData.dbrank
-
-    // if (dbrank !== 'Owner')
-
-    getusersdata()
-
-    const e = {
-        target: {
-            id: '64592ef9afd5fddacabfe440'
-        }
-    }
-
-    // openUserInfoWinWrapper(e)
-
-})
+window.addEventListener('load', () => getusersdata())
 
 async function openUserInfoWinWrapper(event) {
     const formData = [
@@ -175,8 +149,6 @@ async function saveUserInfo() {
         }
         save.classList.add('invisibleBtns')
         cancel.classList.add('invisibleBtns')
-        // edit.classList.remove('unactiveBtns')
-        // del.classList.remove('unactiveBtns')
         edit.disabled = false
         del.disabled = false
         openAlertWin('User information changed successfully', function () {
@@ -195,8 +167,6 @@ function cancelEditing() {
     save.disabled = true
     save.classList.add('invisibleBtns')
     cancel.classList.add('invisibleBtns')
-    // edit.classList.remove('unactiveBtns')
-    // del.classList.remove('unactiveBtns')
     edit.disabled = false
     del.disabled = false
 
@@ -217,8 +187,6 @@ function editUserInfos() {
 
     save.classList.remove('invisibleBtns')
     cancel.classList.remove('invisibleBtns')
-    // edit.classList.add('unactiveBtns')
-    // del.classList.add('unactiveBtns')
     edit.disabled = true
     del.disabled = true
 

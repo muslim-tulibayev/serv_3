@@ -1,7 +1,7 @@
 window.addEventListener('load', async () => {
-    setTimeout(() => {
-        document.getElementsByClassName('loadWin')[0].classList.add('loadSilence')
-    }, 300);
+    // setTimeout(() => {
+    document.getElementsByClassName('loadWin')[0].classList.add('loadSilence')
+    // }, 300);
 })
 
 const sessLan = sessionStorage.getItem('googtrans')

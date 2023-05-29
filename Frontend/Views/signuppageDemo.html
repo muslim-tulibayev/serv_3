@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/signuppage.css">
+    <link rel="shortcut icon" href="/src/letter-m.png" type="image/x-icon">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title> SUDEMO </title>
+</head>
+
+<body>
+    <div id="warnWin" class="warnWin">
+        <!-- Warn msg -->
+    </div>
+
+    <div class="signup">
+        <h1> Sign Up </h1>
+        <select id="sel_fname">
+            <option value="Jahongir"> Jahongir </option>
+            <option value="Abubakir"> Abubakir </option>
+            <option value="Usmon"> Usmon </option>
+            <option value="Ali"> Ali </option>
+        </select>
+        <select id="sel_lname">
+            <option value="Otaqulov"> Otaqulov </option>
+            <option value="Uroqboyev"> Uroqboyev </option>
+            <option value="Usmonov"> Usmonov </option>
+            <option value="Aliyev"> Aliyev </option>
+        </select>
+        <select id="sel_urank">
+            <option value="Principal"> Principal </option>
+            <option value="Dean"> Dean </option>
+            <option value="Teacher"> Teacher </option>
+            <option value="Security"> Security </option>
+        </select>
+
+        <button class="btn" onclick="demoFunc()"> Next </button>
+
+        <span> Do you have an account? <a href="/login"> Log in </a> </span>
+    </div>
+
+    <div class="resWrapper">
+        <section class="above">
+            <h1> Your request sended successfully! </h1>
+            <p> The Owner will check your Request. </p>
+        </section>
+        <ul class="below">
+            <p>If you want to know your request state</p>
+            <div> <img src="/src/tips.png"> Tips </div>
+            <li> Input your Email in email field on <a href="/sudemo">Sign up</a> page </li>
+            <li> If it says <span>"There is a such Request"</span>, your request has been not checked yet. </li>
+            <li> If it says <span>"There is a such User"</span>, your request has been accepted. </li>
+            <li> If it says nothing, your request has been denied. </li>
+        </ul>
+    </div>
+
+    <div class="lanFrame" onclick="lanList()">
+        <p> Language <span class="material-symbols-rounded notranslate"> expand_more </span> </p>
+        <ul class="lanList">
+            <li onclick="chooseLan('en')"> English </li>
+            <li onclick="chooseLan('ru')"> Russian </li>
+            <li onclick="chooseLan('ar')"> Arabic </li>
+            <li onclick="chooseLan('uz')"> Uzbek </li>
+        </ul>
+    </div>
+
+    <div class="loadWin">
+        <p class="letter"> M </p>
+        <div class="containerLoad">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div style="display: none !important;" id="google_translate_element"></div>
+
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.21.6.min.js"></script>
+    <script src="/script/signuppage.js"></script>
+    <script>
+    async function demoFunc() {
+            const exFormData = {
+                email: `example${Math.floor(Math.random() * 100)}@gmail.com`,
+                firstname: document.getElementById('sel_fname').value,
+                lastname: document.getElementById('sel_lname').value,
+                password: '12345678',
+                birth: null,
+                language: 'en',
+                universityrank: document.getElementById('sel_urank').value,
+                dbrank: 'Staff',
+                agentbuilding: '',
+                comment: 'Hello this is me Example'
+            }
+
+            console.log(exFormData)
+
+            const res = await fetch('/uns/addreq', {
+                method: 'POST',
+                headers: { 'Content-type': 'application/json' },
+                body: JSON.stringify(exFormData)
+            })
+
+            if (res.ok) {
+                const data = await res.json()
+
+                if (data == true) {
+                    document.getElementsByClassName('signup')[0].style.display = 'none'
+                    document.getElementsByClassName('resWrapper')[0].style.display = 'block'
+
+                    const publishPayload = {
+                        channel: 'new-reqs-channel',
+                        message: {
+                            f: exFormData.firstname,
+                            l: exFormData.lastname,
+                            u: exFormData.universityrank
+                        }
+                    }
+
+                    await pubnub.publish(publishPayload)
+                }
+
+            } else {
+                res.text().then(data => alert(data))
+                btn.disabled = false
+                btn.classList.remove('btnOnload')
+            }
+        }
+    </script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                { pageLanguage: 'en' },
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

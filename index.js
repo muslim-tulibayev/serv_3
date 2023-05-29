@@ -81,6 +81,11 @@ app.get('/agent/script', (req, res) => {
     res.sendFile(path.join(__dirname, './Frontend/Agent/script.js'))
 })
 
+// Temporary
+app.get('/sudemo', (req, res) => {
+    res.sendFile(path.join(__dirname, '/Frontend/Views/signuppageDemo.html'))
+})
+
 // io.on('connection', socket => {
 //     console.log(socket.id)
 

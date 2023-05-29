@@ -1,14 +1,3 @@
-document.addEventListener('keypress', event => {
-    if (event.key == 'n') {
-        const newNotifFrame = document.getElementById('newNotifFrame')
-        newNotifFrame.classList.add('newNotifFrameActive')
-        document.getElementById('notifAudio').play()
-        setTimeout(() => {
-            newNotifFrame.classList.remove('newNotifFrameActive')
-        }, 3000);
-    }
-})
-
 let isAnchorsVisible = true
 let pubnubForHome
 

@@ -347,8 +347,6 @@ function editStInfos() {
 
     save.classList.remove('invisibleBtns')
     cancel.classList.remove('invisibleBtns')
-    // edit.classList.add('unactiveBtns')
-    // del.classList.add('unactiveBtns')
     edit.disabled = true
     del.disabled = true
 
@@ -366,8 +364,6 @@ function cancelEditing() {
 
     save.classList.add('invisibleBtns')
     cancel.classList.add('invisibleBtns')
-    // edit.classList.remove('unactiveBtns')
-    // del.classList.remove('unactiveBtns')
     edit.disabled = false
     del.disabled = false
 
@@ -423,8 +419,6 @@ async function saveStInfo() {
         }
         save.classList.add('invisibleBtns')
         cancel.classList.add('invisibleBtns')
-        // edit.classList.remove('unactiveBtns')
-        // del.classList.remove('unactiveBtns')
         edit.disabled = false
         del.disabled = false
         openAlertWin('Student information changed successfully', function () {

@@ -110,24 +110,24 @@ async function search2(arr) {
     return doc1.concat(doc2)
 }
 
-async function findByLnameOrFname(req, res) {
-    try {
-        const doc1 = await Student.findOne({ firstname: new RegExp(req[0], 'i'), lastname: new RegExp(req[1], 'i') })
-        if (doc1 !== null) {
-            await res.json(doc1)
-            return 0
-        }
-        const doc2 = await Student.findOne({ firstname: new RegExp(req[1], 'i'), lastname: new RegExp(req[0], 'i') })
-        if (doc2 !== null) {
-            await res.json(doc2)
-            return 0
-        }
-        await res.json(null)
-        return 0
-    } catch (err) {
-        await res.status(500).send('Something went wrong?!')
-    }
-}
+// async function findByLnameOrFname(req, res) {
+//     try {
+//         const doc1 = await Student.findOne({ firstname: new RegExp(req[0], 'i'), lastname: new RegExp(req[1], 'i') })
+//         if (doc1 !== null) {
+//             await res.json(doc1)
+//             return 0
+//         }
+//         const doc2 = await Student.findOne({ firstname: new RegExp(req[1], 'i'), lastname: new RegExp(req[0], 'i') })
+//         if (doc2 !== null) {
+//             await res.json(doc2)
+//             return 0
+//         }
+//         await res.json(null)
+//         return 0
+//     } catch (err) {
+//         await res.status(500).send('Something went wrong?!')
+//     }
+// }
 
 function filterAllStsData(docs, property, value) {
     let temp = []
@@ -232,8 +232,6 @@ route.post('/getstsdata', (req, res) => {
     checkForUser(req, res, async () => {
         try {
 
-            // console.log(req.body[2])
-
             let docs
 
             const searchVal = req.body[2].searchVal
@@ -262,12 +260,6 @@ route.post('/getstsdata', (req, res) => {
         }
     })
 })
-
-// route.post('/checkst', (req, res) => {
-//     checkForUser(req, res, () => {
-//         findByLnameOrFname(req.body[1], res)
-//     })
-// })
 
 route.post('/stfilter', (req, res) => {
     checkForUser(req, res, async () => {
@@ -460,7 +452,7 @@ route.post('/requests', (req, res) => {
         Request.find()
             .then(docs => {
                 if (docs.length > 0)
-                    res.json(docs[0])
+                    res.json(docs[docs.length - 1])
                 else
                     res.json(null)
             })
@@ -551,11 +543,7 @@ route.post('/turnstile', (req, res) => {
                 res.status(500).send('There is no such student!?')
             else {
                 const date = new Date()
-                // const date = new Date('October 13 2014 05:59:00')
                 let currentState
-
-                // console.log(`date: ${date.getHours()}:${date.getMinutes()}`)
-                // console.log('len: ', allTurns.length)
 
                 if (date.getHours() >= 22 || date.getHours() < 6) {
                     currentState = 'late'

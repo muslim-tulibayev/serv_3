@@ -1,8 +1,7 @@
 const route = require('express').Router()
 const bcrypt = require('bcrypt')
 const nodemailer = require('nodemailer')
-// const validator = require('kickbox').client('live_5695ceb4320450a14c97493b21008821fd772f7bff1613b6b5fac62b02ebcff1').kickbox() //new
-const validator = require('kickbox').client('live_dd7321757f70b63172c48d5baf31378f39dd0c539fc2fbe35207e957774774ab').kickbox() //old
+const validator = require('kickbox').client('live_5695ceb4320450a14c97493b21008821fd772f7bff1613b6b5fac62b02ebcff1').kickbox() //new
 // const emailValidator = require('deep-email-validator')
 const User = require('./../Models/User')
 const Request = require('./../Models/Request')
@@ -39,9 +38,9 @@ route.post('/checkforemail', async (req, res) => {
             else {
                 validator.verify(req.body.email, async function (err, valid) {
                     if (err !== null) {
-                        res.send('thereisnt')
+                        // res.send('thereisnt')
                         console.log('Email validator has problem?!')
-                        // res.status(500).send('Something went wrong?!')
+                        res.status(500).send('Something went wrong?!')
                         return 0
                     }
 

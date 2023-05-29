@@ -24,9 +24,9 @@ window.addEventListener('load', async () => {
 
     pubnub.addListener(listener)
 
-    setTimeout(() => {
-        document.getElementsByClassName('loadWin')[0].classList.add('loadSilence')
-    }, 300);
+    // setTimeout(() => {
+    document.getElementsByClassName('loadWin')[0].classList.add('loadSilence')
+    // }, 300);
 })
 
 const sessLan = sessionStorage.getItem('googtrans')

@@ -61,9 +61,9 @@
 
     <script>
         window.addEventListener('load', async () => {
-            setTimeout(() => {
-                document.getElementsByClassName('loadWin')[0].classList.add('loadSilence')
-            }, 500);
+            // setTimeout(() => {
+            document.getElementsByClassName('loadWin')[0].classList.add('loadSilence')
+            // }, 500);
         })
 
         const sessLan = sessionStorage.getItem('googtrans')
@@ -88,7 +88,6 @@
 
         function chooseLan(lan) {
             sessionStorage.setItem('googtrans', lan)
-            // document.cookie = `googtrans=/en/${lan};path=${location.pathname}`
             location.reload()
         }
     </script>

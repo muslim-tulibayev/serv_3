@@ -54,18 +54,6 @@ window.addEventListener('load', async () => {
         document.getElementById('userProfileImg').src = userData.imgpath
         setUserframe(userData)
 
-        // Add All users data page And Notifications only for The Owner
-        if (dbrank == 'Owner') {
-            const requests = await fetch('/sec/requests', {
-                method: 'POST',
-                headers: { 'Content-type': 'application/json' },
-                body: JSON.stringify(formData)
-            })
-            const requestsData = await requests.json()
-            addNotification(requestsData)
-            document.getElementById('allusersdataAnchor').style.display = 'flex'
-        }
-
         document.cookie = `googtrans=/en/${userData.language};path=${location.pathname}`
 
         let googleTranslateScript = document.createElement('script');
@@ -91,7 +79,6 @@ window.addEventListener('load', async () => {
             },
             message: messageEvent => {
                 const data = messageEvent.message
-                // console.log(data)
                 const newNotifFrame = document.getElementById('newNotifFrame')
                 newNotifFrame.innerHTML = `
                     <span class="material-symbols-rounded notranslate" > notifications </span>
@@ -101,6 +88,7 @@ window.addEventListener('load', async () => {
                 `
                 newNotifFrame.classList.add('newNotifFrameActive')
                 document.getElementById('notifAudio').play()
+                addNotification()
                 setTimeout(() => {
                     newNotifFrame.classList.remove('newNotifFrameActive')
                 }, 3000)
@@ -115,17 +103,79 @@ window.addEventListener('load', async () => {
         //     })
         // }
 
+        // Add All users data page And Notifications only for The Owner
         if (dbrank == 'Owner') {
+            addNotification()
+            document.getElementById('allusersdataAnchor').style.display = 'flex'
+
             pubnub.subscribe({
                 channels: ['new-reqs-channel']
             })
         }
 
-        setTimeout(() => {
-            document.getElementsByClassName('loadWin')[0].classList.add('loadSilence')
-        }, 300)
+        // setTimeout(() => {
+        document.getElementsByClassName('loadWin')[0].classList.add('loadSilence')
+        // }, 300)
     }
 })
+
+async function addNotification() {
+    console.log(123)
+    const formData = [
+        readCookie('usid'),
+        readCookie('usid')
+    ]
+
+    const requests = await fetch('/sec/requests', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify(formData)
+    })
+    const data = await requests.json()
+
+    if (data == null)
+        return 0
+    else {
+        sessionStorage.setItem('reqid', data._id)
+        const notification = document.getElementsByClassName('notification')[0]
+        notification.classList.add("active")
+        notification.addEventListener('click', onNotificationBtnClick)
+        notification.innerHTML = `
+            <span class="material-symbols-rounded notranslate"> notifications </span>
+            <div class="nswrapper borEffect" onclick="onThisWindowClick(event)">
+                <p class="nstitles"> Firstname: </p>
+                <p class="nsitems"> ${data.firstname} </p>
+                <p class="nstitles"> Lastname: </p>
+                <p class="nsitems"> ${data.lastname} </p>
+                <p class="nstitles"> Email: </p>
+                <p class="nsitems"> ${data.email} </p>
+                <p class="nstitles"> University Rank: </p>
+                <p class="nsitems"> ${data.universityrank} </p>
+
+                <p class="nstitles"> Platform Rank: </p>
+                <div class="editableItems">
+                    <select id="editableItem" onchange="enableSave()" disabled>
+                        <option value="Owner" ${checkForSelect(data.dbrank, 'Owner')}> Owner </option>
+                        <option value="Admin" ${checkForSelect(data.dbrank, 'Admin')}> Admin </option>
+                        <option value="Staff" ${checkForSelect(data.dbrank, 'Staff')}> Staff </option>
+                        <option value="Agent" ${checkForSelect(data.dbrank, 'Agent')}> Agent </option>
+                    </select>
+                    <button class="edit" onclick="changeReq()"> Edit </button>
+                    <button id="saveReqBtn" onclick="postReqChanges()" class="save" disabled> Save </button>
+                </div>
+
+                <p class="nstitles"> Comment </p>
+                <p class="nsitems nscomment">
+                    ${data.comment}
+                </p>
+                <div class="nsbuttons">
+                    <button onclick="openAskWin('Do you really want to deny this request?', 'denyReq()')"> Deny </button>
+                    <button onclick="openAskWin('Do you really want to allow this request?', 'allowReq()')"> Allow </button>
+                </div>
+            </div>
+        `
+    }
+}
 
 function getFullBuilding(val) {
     if (val == 'cor-a')
@@ -472,50 +522,6 @@ function logout() {
     writeCookie('usid', 0, -1)
     sessionStorage.setItem('googtrans', 'en')
     navigateTo('/welcome')
-}
-
-function addNotification(data) {
-    if (data == null)
-        return 0
-    else {
-        sessionStorage.setItem('reqid', data._id)
-        const notification = document.getElementsByClassName('notification')[0]
-        notification.classList.add("active")
-        notification.addEventListener('click', onNotificationBtnClick)
-        notification.innerHTML += `
-            <div class="nswrapper borEffect" onclick="onThisWindowClick(event)">
-                <p class="nstitles"> Firstname: </p>
-                <p class="nsitems"> ${data.firstname} </p>
-                <p class="nstitles"> Lastname: </p>
-                <p class="nsitems"> ${data.lastname} </p>
-                <p class="nstitles"> Email: </p>
-                <p class="nsitems"> ${data.email} </p>
-                <p class="nstitles"> University Rank: </p>
-                <p class="nsitems"> ${data.universityrank} </p>
-
-                <p class="nstitles"> Platform Rank: </p>
-                <div class="editableItems">
-                    <select id="editableItem" onchange="enableSave()" disabled>
-                        <option value="Owner" ${checkForSelect(data.dbrank, 'Owner')}> Owner </option>
-                        <option value="Admin" ${checkForSelect(data.dbrank, 'Admin')}> Admin </option>
-                        <option value="Staff" ${checkForSelect(data.dbrank, 'Staff')}> Staff </option>
-                        <option value="Agent" ${checkForSelect(data.dbrank, 'Agent')}> Agent </option>
-                    </select>
-                    <button class="edit" onclick="changeReq()"> Edit </button>
-                    <button id="saveReqBtn" onclick="postReqChanges()" class="save" disabled> Save </button>
-                </div>
-
-                <p class="nstitles"> Comment </p>
-                <p class="nsitems nscomment">
-                    ${data.comment}
-                </p>
-                <div class="nsbuttons">
-                    <button onclick="openAskWin('Do you really want to deny this request?', 'denyReq()')"> Deny </button>
-                    <button onclick="openAskWin('Do you really want to allow this request?', 'allowReq()')"> Allow </button>
-                </div>
-            </div>
-        `
-    }
 }
 
 function changeReq() {

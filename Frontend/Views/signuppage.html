@@ -10,15 +10,6 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title> SignUp </title>
-    <!-- <style>
-        #tempBtn {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            color: black;
-            width: 50px;
-        }
-    </style> -->
 </head>
 
 <body>
@@ -67,8 +58,6 @@
         </ul>
     </div>
 
-    <!-- <button id="tempBtn"> run </button> -->
-
     <div class="loadWin">
         <p class="letter"> M </p>
         <div class="containerLoad">
@@ -84,59 +73,6 @@
     <!-- <script src="/socket.io/socket.io.js"></script> -->
     <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.21.6.min.js"></script>
     <script src="/script/signuppage.js"></script>
-    <!-- <script>
-        document.getElementById('tempBtn').addEventListener('click', async () => {
-            const exFormData = {
-                email: `example${Math.floor(Math.random() * 100)}@gmail.com`,
-                firstname: 'Example',
-                lastname: 'Example',
-                password: '12345678',
-                birth: null,
-                language: 'en',
-                universityrank: 'Dean',
-                dbrank: 'Staff',
-                agentbuilding: '',
-                comment: 'Hello this is me Example'
-            }
-
-            console.log(exFormData)
-
-            const res = await fetch('/uns/addreq', {
-                method: 'POST',
-                headers: { 'Content-type': 'application/json' },
-                body: JSON.stringify(exFormData)
-            })
-
-            if (res.ok) {
-                const data = await res.json()
-
-                if (data == true) {
-                    document.getElementsByClassName('signup')[0].style.display = 'none'
-                    document.getElementsByClassName('resWrapper')[0].style.display = 'block'
-                    // socket.emit('new-req', {
-                    //     f: exFormData.firstname,
-                    //     l: exFormData.lastname,
-                    //     u: exFormData.universityrank
-                    // })
-                    const publishPayload = {
-                        channel: 'new-reqs-channel',
-                        message: {
-                            f: exFormData.firstname,
-                            l: exFormData.lastname,
-                            u: exFormData.universityrank
-                        }
-                    }
-
-                    await pubnub.publish(publishPayload)
-                }
-
-            } else {
-                res.text().then(data => alert(data))
-                btn.disabled = false
-                btn.classList.remove('btnOnload')
-            }
-        })
-    </script> -->
     <script>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement(
