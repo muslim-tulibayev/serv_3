@@ -26,101 +26,112 @@
 
 let pubnub
 
-window.addEventListener('load', async () => {
-    if (readCookie('usid') == null) {
-        navigateTo('/welcome')
-    } else {
-        const formData = [
-            readCookie('usid'),
-            readCookie('usid')
-        ]
-        // Set user frame and Set user dbrank
-        const user = await fetch('/sec/getuser', {
-            method: 'POST',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify(formData)
-        })
-        const userData = await user.json()
-        const dbrank = userData.dbrank
+if (readCookie('usid') == null) {
+    navigateTo('/welcome')
+} else {
+    const formData = [
+        readCookie('usid'),
+        readCookie('usid')
+    ]
 
-        if (location.pathname != '/agent' && dbrank == 'Agent') {
-            navigateTo('/agent')
-            return 0
-        } else if (location.pathname == '/agent' && dbrank != 'Agent') {
-            navigateTo('/')
-            return 0
-        }
-
-        document.getElementById('userProfileImg').src = userData.imgpath
-        setUserframe(userData)
-
-        document.cookie = `googtrans=/en/${userData.language};path=${location.pathname}`
-
-        let googleTranslateScript = document.createElement('script');
-        googleTranslateScript.type = 'text/javascript';
-        googleTranslateScript.async = true;
-        googleTranslateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(googleTranslateScript);
-
-        const inputs = document.getElementsByTagName('input')
-        for (let i = 0; i < inputs.length; i++) {
-            inputs[i].addEventListener('keypress', event => inpBlur(event))
-        }
-
-        pubnub = new PubNub({
-            publishKey: "pub-c-eb0db650-b257-433f-8f94-186c68942a99",
-            subscribeKey: "sub-c-600f46a5-b233-4ad9-ab1e-b7c52a44e515"
-        })
-
-        const listener = {
-            status: statusEvent => {
-                if (statusEvent.category === 'PNConnectedCategory')
-                    console.log('pubnub is listening to Sign Up requests...')
-            },
-            message: messageEvent => {
-                const data = messageEvent.message
-                const newNotifFrame = document.getElementById('newNotifFrame')
-                newNotifFrame.innerHTML = `
-                    <span class="material-symbols-rounded notranslate" > notifications </span>
-                    <p class="title"> New request: </p>
-                    <p> ${data.f} ${data.l} </p>
-                    <p> ${data.u} </p>
-                `
-                newNotifFrame.classList.add('newNotifFrameActive')
-                document.getElementById('notifAudio').play()
-                addNotification()
-                setTimeout(() => {
-                    newNotifFrame.classList.remove('newNotifFrameActive')
-                }, 3000)
+    fetch('/sec/getuser', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify(formData)
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (location.pathname != '/agent' && data.dbrank == 'Agent') {
+                navigateTo('/agent')
+                return 0
+            } else if (location.pathname == '/agent' && data.dbrank != 'Agent') {
+                navigateTo('/')
+                return 0
             }
-        }
+        })
+}
 
-        pubnub.addListener(listener)
+window.addEventListener('load', async () => {
+    const formData = [
+        readCookie('usid'),
+        readCookie('usid')
+    ]
+    // Set user frame and Set user dbrank
+    const user = await fetch('/sec/getuser', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify(formData)
+    })
+    const userData = await user.json()
+    const dbrank = userData.dbrank
 
-        // if (dbrank == 'Owner') {
-        //     socket.emit('join-room', 'owner', message => {
-        //         alert(message)
-        //     })
-        // }
+    document.getElementById('userProfileImg').src = userData.imgpath
+    setUserframe(userData)
+    document.cookie = `googtrans=/en/${userData.language};path=${location.pathname}`
 
-        // Add All users data page And Notifications only for The Owner
-        if (dbrank == 'Owner') {
-            addNotification()
-            document.getElementById('allusersdataAnchor').style.display = 'flex'
+    let googleTranslateScript = document.createElement('script');
+    googleTranslateScript.type = 'text/javascript';
+    googleTranslateScript.async = true;
+    googleTranslateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(googleTranslateScript);
 
-            pubnub.subscribe({
-                channels: ['new-reqs-channel']
-            })
-        }
-
-        // setTimeout(() => {
-        document.getElementsByClassName('loadWin')[0].classList.add('loadSilence')
-        // }, 300)
+    const inputs = document.getElementsByTagName('input')
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('keypress', event => inpBlur(event))
     }
+
+    pubnub = new PubNub({
+        publishKey: "pub-c-eb0db650-b257-433f-8f94-186c68942a99",
+        subscribeKey: "sub-c-600f46a5-b233-4ad9-ab1e-b7c52a44e515"
+    })
+
+    const listener = {
+        status: statusEvent => {
+            if (statusEvent.category === 'PNConnectedCategory')
+                console.log('pubnub is listening to Sign Up requests...')
+        },
+        message: messageEvent => {
+            const data = messageEvent.message
+            const newNotifFrame = document.getElementById('newNotifFrame')
+            newNotifFrame.innerHTML = `
+                <span class="material-symbols-rounded notranslate" > notifications </span>
+                <p class="title"> New request: </p>
+                <p> ${data.f} ${data.l} </p>
+                <p> ${data.u} </p>
+            `
+            newNotifFrame.classList.add('newNotifFrameActive')
+            document.getElementById('notifAudio').play()
+            addNotification()
+            setTimeout(() => {
+                newNotifFrame.classList.remove('newNotifFrameActive')
+            }, 3000)
+        }
+    }
+
+    pubnub.addListener(listener)
+
+    // if (dbrank == 'Owner') {
+    //     socket.emit('join-room', 'owner', message => {
+    //         alert(message)
+    //     })
+    // }
+
+    // Add All users data page And Notifications only for The Owner
+    if (dbrank == 'Owner') {
+        addNotification()
+        document.getElementById('allusersdataAnchor').style.display = 'flex'
+
+        pubnub.subscribe({
+            channels: ['new-reqs-channel']
+        })
+    }
+
+    // setTimeout(() => {
+    document.getElementsByClassName('loadWin')[0].classList.add('loadSilence')
+    // }, 300)
 })
 
 async function addNotification() {
-    console.log(123)
     const formData = [
         readCookie('usid'),
         readCookie('usid')
@@ -476,40 +487,44 @@ function toggleNavigatorPanel(event) {
     }
 }
 
-function allowReq() {
+async function allowReq() {
     const formData = [
         readCookie('usid'),
         sessionStorage.getItem('reqid')
     ]
-    fetch('/sec/allowreq', {
+    const res = await fetch('/sec/allowreq', {
         method: 'POST',
         headers: { 'Content-type': 'application/json' },
         body: JSON.stringify(formData)
     })
-        .then(res => {
-            res.text().then(data => {
-                alert(data)
-                closeAskWin()
-                document.getElementsByClassName('notification')[0].classList.remove('active')
-            })
-        })
+
+    const data = await res.text()
+    closeAskWin()
+    document.getElementsByClassName('notification')[0].classList.remove('active')
+    openAlertWin(data, function () {
+        closeAlertWin()
+        addNotification()
+    })
 }
 
-function denyReq() {
+async function denyReq() {
     const formData = [
         readCookie('usid'),
         sessionStorage.getItem('reqid')
     ]
-    fetch('/sec/denyreq', {
+
+    const res = await fetch('/sec/denyreq', {
         method: 'POST',
         headers: { 'Content-type': 'application/json' },
         body: JSON.stringify(formData)
-    }).then(res => {
-        res.text().then(data => {
-            alert(data)
-            closeAskWin()
-            document.getElementsByClassName('notification')[0].classList.remove('active')
-        })
+    })
+
+    const data = await res.text()
+    closeAskWin()
+    document.getElementsByClassName('notification')[0].classList.remove('active')
+    openAlertWin(data, function () {
+        closeAlertWin()
+        addNotification()
     })
 }
 
