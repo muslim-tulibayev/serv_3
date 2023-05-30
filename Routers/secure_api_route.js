@@ -323,6 +323,12 @@ route.post('/getaction', (req, res) => {
                 return new Date(b.createdAt) - new Date(a.createdAt)
             })
 
+            if (formData[2].dateFil === 'today') {
+                for (let i = 0; i < docs.length; i++) {
+                    console.log(await Turnstile.findByIdAndDelete(docs[i]._id.toString()))
+                }
+            }
+
             let temp = docs.slice(formData[1].start, formData[1].end)
             temp.unshift(docs.length)
             res.json(temp)
