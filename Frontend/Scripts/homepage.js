@@ -265,12 +265,12 @@ function toggleStCommandsFrame(elid, event) {
 
 function goToTurnstile(event) {
     event.stopPropagation()
-    sessionStorage.setItem('gototurn', event.target.id)
+    sessionStorage.setItem('gototurn', event.currentTarget.id)
     navigateTo('/ststate')
 }
 
 function goToAllStsData(event) {
     event.stopPropagation()
-    sessionStorage.setItem('gotostdt', event.target.id)
+    sessionStorage.setItem('gotostdt', event.currentTarget.id)
     navigateTo('/allstsdata')
 }

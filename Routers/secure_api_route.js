@@ -343,18 +343,20 @@ route.post('/getaction', (req, res) => {
 route.post('/getst', (req, res) => {
     checkForUser(req, res, async () => {
         try {
-            let enter = 0
-            let exit = 0
+            // let enter = 0
+            // let exit = 0
             let late = 0
             let doc = await Student.findById(req.body[1])
             const turns = await Turnstile.find({ student: doc._id })
             turns.forEach(item => {
-                if (item.state == 'enter')
-                    enter++
-                else if (item.state == 'exit')
-                    exit++
-                else if (item.state == 'late')
+                if (item.state == 'late')
                     late++
+                // if (item.state == 'enter')
+                //     enter++
+                // else if (item.state == 'exit')
+                //     exit++
+                // else if (item.state == 'late')
+                //     late++
             })
             const temp = {
                 _id: doc._id,
@@ -369,8 +371,10 @@ route.post('/getst', (req, res) => {
                 imgpath: doc.imgpath,
                 createdAt: doc.createdAt,
                 updatedAt: doc.updatedAt,
-                enter: enter,
-                exit: exit,
+                // enter: enter,
+                // exit: exit,
+                enter: Math.ceil(turns.length / 2),
+                exit: Math.floor(turns.length / 2),
                 late: late
             }
             res.send(temp)

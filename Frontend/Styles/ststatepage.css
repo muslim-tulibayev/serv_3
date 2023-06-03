@@ -293,6 +293,7 @@
 }
 .standentering .stenteringlistwrapper .enteringitems .building {
   flex: 1;
+  font-size: 13px;
 }
 .standentering .stenteringlistwrapper .enteringitems .datecolumn {
   flex: 1;

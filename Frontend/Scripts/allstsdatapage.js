@@ -286,7 +286,7 @@ function clearStsListWrapper() {
 }
 
 async function goToTurnstile(event) {
-    sessionStorage.setItem('gototurn', event.target.id)
+    sessionStorage.setItem('gototurn', event.currentTarget.id)
     navigateTo('/ststate')
 }
 

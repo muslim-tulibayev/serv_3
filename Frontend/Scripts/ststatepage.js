@@ -144,8 +144,8 @@ async function writestandentering(stid) {
             const d = new Date(item.createdAt)
             stenteringlist.innerHTML += `
                 <div class="enteringitems">
-                    <div class="state"> <li class="${item.state} notranslate"> ${item.state} </li> </div>
-                    <div class="building notranslate"> ${getFullBuilding(item.building)} </div>
+                    <div class="state"> <li class="${item.state}"> ${item.state} </li> </div>
+                    <div class="building"> ${getFullBuilding(item.building)} </div>
                     <div class="datecolumn">
                         <div class="date"> ${setzero(d.getDate())}.${setzero(d.getMonth() + 1)}.${d.getFullYear()} </div>
                         <div class="clock"> ${setzero(d.getHours())}:${setzero(d.getMinutes())} </div>
